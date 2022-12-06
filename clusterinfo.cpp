@@ -518,8 +518,8 @@ void ClusterInfo::updateSimple()
 	m_odometer -= ODOMETER_OFFSET;
 	//qDebug() << "Milage:" << m_odometer << "km";
 
-	m_partnum = getData(0x40, 0xF) + '0';
-	m_partnum += QString("%1").arg( getData(0x41), 2, 16, QChar('0') );
+ 	m_partnum = QString("%1").arg(getData(0x40, 0xF)) + '0';
+  	m_partnum += QString("%1").arg( getData(0x41), 2, 16, QChar('0') );
 	m_partnum += QString("%1").arg( getData(0x3E), 2, 16, QChar('0') );
 	m_partnum += QString("%1").arg( getData(0x3F), 2, 16, QChar('0') );
 	m_partnum = m_partnum.toUpper();
